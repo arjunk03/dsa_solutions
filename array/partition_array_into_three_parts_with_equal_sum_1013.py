@@ -1,11 +1,12 @@
 def solution(arr):
-    if sum(arr) % 3 != 0:
+    arr_sum = sum(arr)
+    if arr_sum % 3 != 0:
         return False
 
     if len(arr) < 3:
         return False
 
-    target = sum(arr) // 3
+    target = arr_sum // 3
     cur_sum = 0
     part = 0
     for val in arr:
