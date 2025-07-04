@@ -1,3 +1,5 @@
+from collections import namedtuple
+from itertools import permutations
 from collections import deque
 
 
@@ -18,9 +20,10 @@ class Stack:
         if self.len == 0:
             return None
         else:
-            self.top = self.data.pop()
+            pop = self.data.pop()
+            self.top = self.data[-1] if self.data else None
             self.len -= 1
-            return self.top
+            return pop
 
     def peek(self):
         return self.top
@@ -47,3 +50,16 @@ print(st.peek(), st.size())
 
 st.pop()
 print(st.peek(), st.size())
+
+
+a = [1, 2, 3]
+data = permutations(a)
+# print("Permutations:", data)
+for val in data:
+    print("val: ", val)
+
+
+Person = namedtuple("Person", "name age city")
+
+p = Person("John", 25, "New York")
+print(p.name, p.age, p.city)
